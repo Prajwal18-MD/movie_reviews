@@ -39,6 +39,10 @@ fitModel = model.fit(x_train, y_train, epochs=40, batch_size=512, validation_dat
 results = model.evaluate(test_data, test_labels)
 print(results)
 
+model.save("model.h5")
+
+model = keras.models.load_model("model.model.h5")
+
 test_review = test_data[0]
 predict = model.predict(np.expand_dims(test_review, axis=0)) 
 print("Review:")
